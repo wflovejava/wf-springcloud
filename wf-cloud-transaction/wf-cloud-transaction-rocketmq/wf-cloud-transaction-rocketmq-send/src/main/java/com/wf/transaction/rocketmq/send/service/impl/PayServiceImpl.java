@@ -29,6 +29,6 @@ public class PayServiceImpl implements PayService {
         fwTradeLog.setStatusDsc(StatusEnum.THREE.getDesc());
         fwTradeLogService.insert(fwTradeLog);
         log.info("[订单状态{}]=>{},当前商品id=>{},商品名称=>{}",fwTradeLog.getOrderId(), StatusEnum.THREE.getDesc(),fwTradeLog.getProductId(),fwTradeLog.getProductName());
-
+        int i=10/0;
     }
 }

@@ -1,0 +1,26 @@
+server:
+  port: 9002
+spring:
+  #数据库配置  start
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url:  jdbc:mysql://10.38.77.61:3306/ygyg_smartenergy?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&allowMultiQueries=true
+    username: ygyg_smartenergy_beta2
+    password: ygyg_smartenergy_beta2
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      connection-timeout: 20000
+      auto-commit: true
+      max-lifetime: 1200000
+      minimum-idle: 5
+      maximum-pool-size: 12
+      idle-timeout: 300000
+rocketmq:
+  name-server: localhost:9876
+  producer:
+    group: order-group
+
+
+mybatis:
+  config-location: classpath:config/mybatis-config.xml
+  mapper-locations: classpath*:mapper/*.xml

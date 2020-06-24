@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="ygyg_smartenergy@10.38.77.61" uuid="7843eacf-6ae6-46eb-87de-3fd133475b6b">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://10.38.77.61:3306/ygyg_smartenergy</jdbc-url>
+    </data-source>
+  </component>
+</project>
