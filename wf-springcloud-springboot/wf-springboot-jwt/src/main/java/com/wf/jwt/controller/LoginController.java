@@ -4,6 +4,7 @@ import com.wf.common.dto.Response;
 import com.wf.common.entity.User;
 import com.wf.common.service.UserService;
 import com.wf.common.util.ResponseUtils;
+import com.wf.jwt.dto.UserDto;
 import com.wf.jwt.util.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,7 +26,7 @@ public class LoginController {
     JwtTokenUtil jwtTokenUtil;
 
     @RequestMapping("/login")
-    public Response login(@RequestBody User userDto) {
+    public Response login(@RequestBody UserDto userDto) {
         User user = userService.queryById(userDto.getUserId());
         if (user == null) {
             return ResponseUtils.failure("用户不存在！");
@@ -37,4 +38,17 @@ public class LoginController {
             return ResponseUtils.success(token);
         }
     }
+
+    /**
+     * 通过主键查询单条数据
+     *
+     * @param id 主键
+     * @return 单条数据
+     */
+    @RequestMapping("/get")
+    public Response<User> get(Integer id) {
+        User user = this.userService.queryById(id);
+        return ResponseUtils.success(user);
+    }
+
 }
