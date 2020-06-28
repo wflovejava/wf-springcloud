@@ -4,9 +4,9 @@ spring:
   #数据库配置  start
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url:  jdbc:mysql://10.38.77.61:3306/ygyg_smartenergy?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&allowMultiQueries=true
-    username: ygyg_smartenergy_beta2
-    password: ygyg_smartenergy_beta2
+    url:  jdbc:mysql://xx:3306/xx?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&allowMultiQueries=true
+    username: xx
+    password: xx
     driver-class-name: com.mysql.jdbc.Driver
     hikari:
       connection-timeout: 20000
