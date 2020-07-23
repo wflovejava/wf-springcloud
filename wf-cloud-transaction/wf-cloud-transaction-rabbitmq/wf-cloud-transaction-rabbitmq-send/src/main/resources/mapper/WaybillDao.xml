@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wf.transaction.rabbitmq.send.dao.WaybillDao">
+
+    <resultMap type="com.wf.transaction.rabbitmq.send.entity.Waybill" id="WaybillMap">
+        <result property="waybillId" column="waybill_id" jdbcType="INTEGER"/>
+        <result property="orderId" column="order_id" jdbcType="INTEGER"/>
+        <result property="waybillUserId" column="waybill_user_id" jdbcType="INTEGER"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="WaybillMap">
+        select
+          waybill_id, order_id, waybill_user_id, status
+        from senddb.waybill
+        where waybill_id = #{waybillId}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="WaybillMap">
+        select
+          waybill_id, order_id, waybill_user_id, status
+        from senddb.waybill
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="WaybillMap">
+        select
+          waybill_id, order_id, waybill_user_id, status
+        from senddb.waybill
+        <where>
+            <if test="waybillId != null">
+                and waybill_id = #{waybillId}
+            </if>
+            <if test="orderId != null">
+                and order_id = #{orderId}
+            </if>
+            <if test="waybillUserId != null">
+                and waybill_user_id = #{waybillUserId}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="waybillId" useGeneratedKeys="true">
+        insert into senddb.waybill(order_id, waybill_user_id, status)
+        values (#{orderId}, #{waybillUserId}, #{status})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update senddb.waybill
+        <set>
+            <if test="orderId != null">
+                order_id = #{orderId},
+            </if>
+            <if test="waybillUserId != null">
+                waybill_user_id = #{waybillUserId},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+        </set>
+        where waybill_id = #{waybillId}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from senddb.waybill where waybill_id = #{waybillId}
+    </delete>
+
+</mapper>
