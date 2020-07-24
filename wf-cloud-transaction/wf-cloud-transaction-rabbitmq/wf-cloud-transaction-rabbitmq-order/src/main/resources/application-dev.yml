@@ -1,0 +1,38 @@
+server:
+  port: 9002
+spring:
+  #数据库配置  start
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url:  jdbc:mysql://20.4.148.43:3306/orderdb?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&allowMultiQueries=true
+    username: root
+    password: admin
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      connection-timeout: 20000
+      auto-commit: true
+      max-lifetime: 1200000
+      minimum-idle: 5
+      maximum-pool-size: 12
+      idle-timeout: 300000
+  rabbitmq:
+    host: 20.4.148.43
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirms: true # 重要 开启消息发送确认机制  开启confirms回调 P -> Exchange
+    connection-timeout: 200
+    publisher-returns: true # # 开启returnedMessage回调 Exchange -> Queue
+#    virtual-host: /test
+rocketmq:
+  name-server: localhost:9876
+  producer:
+    group: order-group
+
+
+
+
+
+mybatis:
+  config-location: classpath:config/mybatis-config.xml
+  mapper-locations: classpath*:mapper/*.xml

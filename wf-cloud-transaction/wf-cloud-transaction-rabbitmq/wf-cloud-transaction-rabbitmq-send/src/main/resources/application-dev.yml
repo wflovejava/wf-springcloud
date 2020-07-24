@@ -1,0 +1,48 @@
+server:
+  port: 9003
+spring:
+  #数据库配置  start
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url:  jdbc:mysql://20.4.148.43:3306/senddb?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&allowMultiQueries=true
+    username: root
+    password: admin
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      connection-timeout: 20000
+      auto-commit: true
+      max-lifetime: 1200000
+      minimum-idle: 5
+      maximum-pool-size: 12
+      idle-timeout: 300000
+  rabbitmq:
+    host: 20.4.148.43
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        acknowledge-mode: manual # 手动回ack
+        concurrency: 3   #最小的消费者数量
+        max-concurrency: 10 #最大的消费者数量
+        prefetch: 10 #指定一个请求能处理多少个消息，如果有事务的话，必须大于等于transaction数量.
+        transaction-size: 10 # 指定一个事务处理的消息数量，最好是小于等于prefetch的数量.
+
+        retry:
+          enabled: true #监听重试是否可用
+          max-attempts: 3 #最大重试次数
+          multiplier: 1 #应用于上一重试间隔的乘数
+          initial-interval: 1000 #第一次和第二次尝试发布或传递消息之间的间隔 1秒
+          max-interval: 10000 # 最大重试时间间隔
+          stateless: true
+
+
+rocketmq:
+  name-server: localhost:9876
+  producer:
+    group: order-group
+
+
+mybatis:
+  config-location: classpath:config/mybatis-config.xml
+  mapper-locations: classpath*:mapper/*.xml
