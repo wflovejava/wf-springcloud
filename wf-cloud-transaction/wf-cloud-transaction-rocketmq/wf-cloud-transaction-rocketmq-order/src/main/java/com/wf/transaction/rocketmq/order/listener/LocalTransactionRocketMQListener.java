@@ -4,7 +4,6 @@ import com.wf.transaction.base.entity.FwTradeLog;
 import com.wf.transaction.base.entity.FwTransactionLog;
 import com.wf.transaction.base.service.FwTransactionLogService;
 import com.wf.transaction.rocketmq.order.service.OrderService;
-import com.wf.transaction.rocketmq.order.service.impl.OrderServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.spring.annotation.RocketMQTransactionListener;
 import org.apache.rocketmq.spring.core.RocketMQLocalTransactionListener;
@@ -16,8 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageHeaders;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 /**
  * @Author ：wf
