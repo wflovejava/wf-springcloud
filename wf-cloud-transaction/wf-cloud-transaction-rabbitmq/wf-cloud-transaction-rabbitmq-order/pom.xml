@@ -3,24 +3,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>wf-springcloud</artifactId>
+        <artifactId>wf-cloud-transaction-rabbitmq</artifactId>
         <groupId>org.example</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>wf-cloud-transaction</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>wf-cloud-transaction-base-dao</module>
-        <module>wf-cloud-transaction-rocketmq</module>
-        <module>wf-cloud-transaction-rabbitmq</module>
-    </modules>
+    <artifactId>wf-cloud-transaction-rabbitmq-order</artifactId>
 
     <dependencies>
         <dependency>
+            <artifactId>wf-cloud-transaction-base-dao</artifactId>
             <groupId>org.example</groupId>
-            <artifactId>wf-springcloud-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

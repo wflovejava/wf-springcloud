@@ -12,6 +12,7 @@
         <module>wf-cloud-transaction</module>
         <module>wf-springcloud-common</module>
         <module>wf-springcloud-springboot</module>
+        <module>wf-springcloud-gateway</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

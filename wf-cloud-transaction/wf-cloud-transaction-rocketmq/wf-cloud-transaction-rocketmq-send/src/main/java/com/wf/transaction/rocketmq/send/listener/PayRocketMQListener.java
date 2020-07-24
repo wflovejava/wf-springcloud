@@ -3,7 +3,6 @@ package com.wf.transaction.rocketmq.send.listener;
 
 import com.wf.transaction.base.entity.FwTradeLog;
 import com.wf.transaction.rocketmq.send.service.PayService;
-import com.wf.transaction.rocketmq.send.service.impl.PayServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
 import org.apache.rocketmq.spring.core.RocketMQListener;
